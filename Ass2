@@ -1,0 +1,61 @@
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv('weight-height.csv')
+
+df.head()
+
+df.to_string
+
+df.isnull().sum()
+
+df.isna()
+
+df.info()
+
+df.isna().sum()
+
+df.drop_duplicates()
+
+from sklearn.model_selection import train_test_split
+df
+
+X=df[['Height']]
+y=df[['Weight']]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+X_train.shape
+
+y_train.shape
+
+from sklearn.linear_model import LinearRegression
+
+logmodel=LinearRegression()
+
+logmodel.fit(X_train,y_train)
+
+prdt=logmodel.predict(X_test)
+
+prdt
+
+print(logmodel.coef_)
+
+print(logmodel.intercept_)
+
+import matplotlib.pyplot as plt
+
+plt.scatter(X_test,y_test)
+plt.plot(X_test,prdt,color='red')
+
+from sklearn import metrics
+
+print('mean squared error',metrics.mean_squared_error(y_test,prdt))
+
+print('mean absolute error',metrics.mean_absolute_error(y_test,prdt))
+
+print('R Squared error',logmodel.score(X_train,y_train))
+
+
+
+
