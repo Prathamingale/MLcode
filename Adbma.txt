@@ -1,10 +1,10 @@
 
-SKN> db.student.insertOne({name:"patik",roll:1})
+ db.student.insertOne({name:"patik",roll:1})
 {
   acknowledged: true,
   insertedId: ObjectId("655a312bdb321965d4eea882")
 }
-SKN> db.student.insertMany([{name:"rohit",roll:2},{name:"sarthak",roll:3},{name:"anup",roll:4},{name:"rakesh",roll:5},{name:"pratham",roll:6},{name:"rahul",roll:7}])
+ db.student.insertMany([{name:"rohit",roll:2},{name:"sarthak",roll:3},{name:"anup",roll:4},{name:"rakesh",roll:5},{name:"pratham",roll:6},{name:"rahul",roll:7}])
 {
   acknowledged: true,
   insertedIds: {
@@ -16,7 +16,7 @@ SKN> db.student.insertMany([{name:"rohit",roll:2},{name:"sarthak",roll:3},{name:
     '5': ObjectId("655a31c8db321965d4eea888")
   }
 }
-SKN> db.student.find()
+ db.student.find()
 [
   { _id: ObjectId("655a312bdb321965d4eea882"), name: 'patik', roll: 1 },
   { _id: ObjectId("655a31c8db321965d4eea883"), name: 'rohit', roll: 2 },
@@ -38,9 +38,9 @@ SKN> db.student.find()
   },
   { _id: ObjectId("655a31c8db321965d4eea888"), name: 'rahul', roll: 7 }
 ]
-SKN> db.student.findOne({name:"rahul"})
+ db.student.findOne({name:"rahul"})
 { _id: ObjectId("655a31c8db321965d4eea888"), name: 'rahul', roll: 7 }
-SKN> db.student.find({roll:{$lte:5}})
+ db.student.find({roll:{$lte:5}})
 [
   { _id: ObjectId("655a312bdb321965d4eea882"), name: 'patik', roll: 1 },
   { _id: ObjectId("655a31c8db321965d4eea883"), name: 'rohit', roll: 2 },
@@ -56,7 +56,7 @@ SKN> db.student.find({roll:{$lte:5}})
     roll: 5
   }
 ]
-SKN> db.student.find({roll:{$gte:2,$lte:5}})
+ db.student.find({roll:{$gte:2,$lte:5}})
 [
   { _id: ObjectId("655a31c8db321965d4eea883"), name: 'rohit', roll: 2 },
   {
@@ -71,9 +71,9 @@ SKN> db.student.find({roll:{$gte:2,$lte:5}})
     roll: 5
   }
 ]
-SKN> db.student.find({roll:{$gte:2,$lte:5}}).count()
+ db.student.find({roll:{$gte:2,$lte:5}}).count()
 4
-SKN> db.student.update({name:"rakesh"},{$set:{age:21}})
+ db.student.update({name:"rakesh"},{$set:{age:21}})
 {
   acknowledged: true,
   insertedId: null,
@@ -81,14 +81,14 @@ SKN> db.student.update({name:"rakesh"},{$set:{age:21}})
   modifiedCount: 1,
   upsertedCount: 0
 }
-SKN> db.student.findOne({name:"rakesh"})
+ db.student.findOne({name:"rakesh"})
 {
   _id: ObjectId("655a31c8db321965d4eea886"),
   name: 'rakesh',
   roll: 5,
   age: 21
 }
-SKN> db.student.updateMany({},{set:{age:20}})
+ db.student.updateMany({},{set:{age:20}})
 MongoInvalidArgumentError: Update document requires atomic operators
 SKN> db.student.updateMany({},{$set:{age:20}})
 {
@@ -98,7 +98,7 @@ SKN> db.student.updateMany({},{$set:{age:20}})
   modifiedCount: 7,
   upsertedCount: 0
 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -143,7 +143,7 @@ SKN> db.student.find()
     age: 20
   }
 ]
-SKN> db.student.updateOne({name:"rahul"},{$set:{age:21}})
+ db.student.updateOne({name:"rahul"},{$set:{age:21}})
 {
   acknowledged: true,
   insertedId: null,
@@ -151,16 +151,16 @@ SKN> db.student.updateOne({name:"rahul"},{$set:{age:21}})
   modifiedCount: 1,
   upsertedCount: 0
 }
-SKN> db.student.findOne({name:"rahul"})
+ db.student.findOne({name:"rahul"})
 {
   _id: ObjectId("655a31c8db321965d4eea888"),
   name: 'rahul',
   roll: 7,
   age: 21
 }
-SKN> db.student.updateMany({name:"rahul"},{$set:{hobbies:[swimming,reading]}})
+ db.student.updateMany({name:"rahul"},{$set:{hobbies:[swimming,reading]}})
 ReferenceError: swimming is not defined
-SKN> db.student.updateMany({name:"rahul"},{$set:{hobbies:['swimming','reading']}})
+ db.student.updateMany({name:"rahul"},{$set:{hobbies:['swimming','reading']}})
 {
   acknowledged: true,
   insertedId: null,
@@ -168,7 +168,7 @@ SKN> db.student.updateMany({name:"rahul"},{$set:{hobbies:['swimming','reading']}
   modifiedCount: 1,
   upsertedCount: 0
 }
-SKN> db.student.find({name:"rahul"})
+ db.student.find({name:"rahul"})
 [
   {
     _id: ObjectId("655a31c8db321965d4eea888"),
@@ -178,7 +178,7 @@ SKN> db.student.find({name:"rahul"})
     hobbies: [ 'swimming', 'reading' ]
   }
 ]
-SKN> db.student.updateMany({},{$set:{hobbies:['swimming','cricket']}})
+ db.student.updateMany({},{$set:{hobbies:['swimming','cricket']}})
 {
   acknowledged: true,
   insertedId: null,
@@ -186,7 +186,7 @@ SKN> db.student.updateMany({},{$set:{hobbies:['swimming','cricket']}})
   modifiedCount: 7,
   upsertedCount: 0
 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -238,7 +238,7 @@ SKN> db.student.find()
     hobbies: [ 'swimming', 'cricket' ]
   }
 ]
-SKN> db.student.updateMany({name:"rahul"},{$set:{hobbies:['swimming','reading']}})
+ db.student.updateMany({name:"rahul"},{$set:{hobbies:['swimming','reading']}})
 {
   acknowledged: true,
   insertedId: null,
@@ -246,7 +246,7 @@ SKN> db.student.updateMany({name:"rahul"},{$set:{hobbies:['swimming','reading']}
   modifiedCount: 1,
   upsertedCount: 0
 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -298,7 +298,7 @@ SKN> db.student.find()
     hobbies: [ 'swimming', 'reading' ]
   }
 ]
-SKN> db.student.findOne({hobbies:"reading"})
+ db.student.findOne({hobbies:"reading"})
 {
   _id: ObjectId("655a31c8db321965d4eea888"),
   name: 'rahul',
@@ -306,7 +306,7 @@ SKN> db.student.findOne({hobbies:"reading"})
   age: 21,
   hobbies: [ 'swimming', 'reading' ]
 }
-SKN> db.student.update({},{set:{idcard:{adhar:true,pancard:false}}})
+ db.student.update({},{set:{idcard:{adhar:true,pancard:false}}})
 MongoInvalidArgumentError: Update document requires atomic operators
 SKN> db.student.update({},{$set:{idcard:{adhar:true,pancard:false}}})
 {
@@ -316,7 +316,7 @@ SKN> db.student.update({},{$set:{idcard:{adhar:true,pancard:false}}})
   modifiedCount: 1,
   upsertedCount: 0
 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -369,7 +369,7 @@ SKN> db.student.find()
     hobbies: [ 'swimming', 'reading' ]
   }
 ]
-SKN> db.student.updateMany({},{$set:{idcard:{adhar:true,pancard:false}}})
+ db.student.updateMany({},{$set:{idcard:{adhar:true,pancard:false}}})
 {
   acknowledged: true,
   insertedId: null,
@@ -377,7 +377,7 @@ SKN> db.student.updateMany({},{$set:{idcard:{adhar:true,pancard:false}}})
   modifiedCount: 6,
   upsertedCount: 0
 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -436,7 +436,7 @@ SKN> db.student.find()
     idcard: { adhar: true, pancard: false }
   }
 ]
-SKN> db.student.updateOne({name:"rashul"},{$set:{idcard:{adhar:false,pancard:true}}})
+ db.student.updateOne({name:"rashul"},{$set:{idcard:{adhar:false,pancard:true}}})
 {
   acknowledged: true,
   insertedId: null,
@@ -444,7 +444,7 @@ SKN> db.student.updateOne({name:"rashul"},{$set:{idcard:{adhar:false,pancard:tru
   modifiedCount: 0,
   upsertedCount: 0
 }
-SKN> db.student.updateOne({name:"rahul"},{$set:{idcard:{adhar:false,pancard:true}}})
+ db.student.updateOne({name:"rahul"},{$set:{idcard:{adhar:false,pancard:true}}})
 {
   acknowledged: true,
   insertedId: null,
@@ -452,7 +452,7 @@ SKN> db.student.updateOne({name:"rahul"},{$set:{idcard:{adhar:false,pancard:true
   modifiedCount: 1,
   upsertedCount: 0
 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -511,7 +511,7 @@ SKN> db.student.find()
     idcard: { adhar: false, pancard: true }
   }
 ]
-SKN> db.student.find({'idcard.adhar':false})
+ db.student.find({'idcard.adhar':false})
 [
   {
     _id: ObjectId("655a31c8db321965d4eea888"),
@@ -522,9 +522,9 @@ SKN> db.student.find({'idcard.adhar':false})
     idcard: { adhar: false, pancard: true }
   }
 ]
-SKN> db.student.deleteOne({name:"pratham"})
+ db.student.deleteOne({name:"pratham"})
 { acknowledged: true, deletedCount: 1 }
-SKN> db.student.find()
+ db.student.find()
 [
   {
     _id: ObjectId("655a312bdb321965d4eea882"),
@@ -575,4 +575,4 @@ SKN> db.student.find()
     idcard: { adhar: false, pancard: true }
   }
 ]
-SKN> db.student.find()
+ db.student.find()
